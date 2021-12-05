@@ -7,6 +7,8 @@ import { useHistory } from "react-router-dom";
 const Register = () => {
   const [data, setData] = useState({
     name: "",
+    gender: "",
+    age: "",
     email: "",
     password: "",
     experience: "",
@@ -23,9 +25,10 @@ const Register = () => {
   const history = useHistory();
 
   const Freq = ['Once', 'Twice', 'Thrice', 'Every Day'];
+  const Gender=['Male', 'Female', 'X'];
   const Social = ['Group', 'Alone', 'Both'];
   const Experience = ['Beginner', 'Intermediate', 'Expert'];
-  const { name, email, password, experience,skatingtype,social,frequency,phone, state, city,error, loading } = data;
+  const { name, gender, age, email, password, experience,skatingtype,social,frequency,phone, state, city,error, loading } = data;
   const Skating_Type = [
     'Freestyle',
     'Vert',
@@ -42,7 +45,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setData({ ...data, error: null, loading: true });
-    if (!name || !email || !password || !experience || !social || !frequency)  {
+    if (!name || !email || !password || !experience || !social || !frequency || !gender)  {
       setData({ ...data, error: "All fields are required" });
     }
     try {
@@ -54,6 +57,8 @@ const Register = () => {
       await setDoc(doc(db, "users", result.user.uid), {
         uid: result.user.uid,
         name,
+        gender,
+        age,
         email,
         experience,
         skatingtype,
@@ -67,6 +72,8 @@ const Register = () => {
       });
       setData({
         name: "",
+        gender: "",
+        age: "",
         email: "",
         password: "",
         experience: "",
@@ -92,6 +99,12 @@ const Register = () => {
         <div className="input_container">
           <label htmlFor="name">Name</label>
           <input type="text" name="name" value={name} onChange={handleChange} />
+        </div>
+
+
+            <div className="input_container">
+          <label htmlFor="name">Age</label>
+          <input type="number" name="age" value={age} onChange={handleChange} />
         </div>
 
         <div className="input_container">
@@ -139,7 +152,20 @@ const Register = () => {
           <input type="text" name="city" value={city} onChange={handleChange} />
         </div>
 
-
+        <div className="input_container">
+                <label htmlFor="experience">Gender*</label>          
+                <select
+                    name="gender"
+                    required
+                    value={gender}
+                    onChange={handleChange}
+                >
+                    <option value="">Select</option>
+                    {Gender.map((c) => (
+                        <option key={c}>{c}</option>
+                    ))}
+                </select>
+            </div>
 
 
         <div className="input_container">
