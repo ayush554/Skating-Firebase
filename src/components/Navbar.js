@@ -20,15 +20,18 @@ const Navbar = () => {
   return (
     <nav>
       <h3>
-        <Link to="/">Skating App</Link>
+        <Link to="/">Home</Link>
       </h3>
       <div>
         {auth.currentUser ? (
           <>
-             <Link to="/Friends">Friends</Link>
+            <Link to="/Friends">Friends</Link>
             <Link to="/Parks">Parks</Link>
             <Link to="/Spots">Spots</Link>
             <Link to="/profile">Profile</Link>
+            <Link to="/Chat">Chat</Link>
+            <Link to="/Favorites">Favorites</Link>
+            <Link to="/AddPlaces">Add Places</Link>
            
             <button className="btn" onClick={handleSignout}>
               Logout

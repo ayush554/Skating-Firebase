@@ -11,6 +11,9 @@ import Profile from './pages/Profile';
 import Friends from './pages/Friends';
 import Spots from './pages/Spots';
 import Parks from './pages/Parks';
+import Chat from './pages/Chat';
+import AddPlaces from './pages/AddPlaces';
+import Favorites from './pages/Favorites';
 function App() {
   return (
     <AuthProvider>
@@ -22,6 +25,9 @@ function App() {
           <PrivateRoute exact path="/Friends" component={Friends}/>
           <PrivateRoute exact path="/Spots" component={Spots}/>
           <PrivateRoute exact path="/Parks" component={Parks}/>
+          <PrivateRoute exact path="/Chat" component={Chat}/>
+          <PrivateRoute exact path="/AddPlaces" component={AddPlaces}/>
+          <PrivateRoute exact path="/Favorites" component={Favorites}/>
           <Route exact path="/Register" component={Register} />
           <Route exact path="/Login" component={Login} />
         </Switch>
