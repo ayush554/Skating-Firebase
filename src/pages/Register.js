@@ -13,10 +13,9 @@ const Register = () => {
     skatingtype: "",
     social: "",
     frequency: "",
-    phone,
-    state,
-    city,
-    tricks,
+    phone: "",
+    state: "",
+    city: "",
     error: null,
     loading: false,
   });
@@ -26,7 +25,7 @@ const Register = () => {
   const Freq = ['Once', 'Twice', 'Thrice', 'Every Day'];
   const Social = ['Group', 'Alone', 'Both'];
   const Experience = ['Beginner', 'Intermediate', 'Expert'];
-  const { name, email, password, experience,skatingtype,social,frequency,phone, state, city, tricks,error, loading } = data;
+  const { name, email, password, experience,skatingtype,social,frequency,phone, state, city,error, loading } = data;
   const Skating_Type = [
     'Freestyle',
     'Vert',
@@ -63,7 +62,6 @@ const Register = () => {
         phone,
         state,
         city,
-        tricks,
         createdAt: Timestamp.fromDate(new Date()),
         isOnline: true,
       });
@@ -78,7 +76,6 @@ const Register = () => {
         phone: "",
         state: "",
         city: "",
-        tricks: "",
         error: null,
         loading: false,
       });
@@ -142,10 +139,7 @@ const Register = () => {
           <input type="text" name="city" value={city} onChange={handleChange} />
         </div>
 
-        <div className="input_container">
-          <label htmlFor="tricks">Tricks</label>
-          <input type="text" name="tricks" value={tricks} onChange={handleChange} />
-        </div>
+
 
 
         <div className="input_container">
