@@ -13,7 +13,10 @@ const Register = () => {
     skatingtype: "",
     social: "",
     frequency: "",
-    locationenable: "",
+    phone,
+    state,
+    city,
+    tricks,
     error: null,
     loading: false,
   });
