@@ -125,7 +125,7 @@ export const SpotsSearch = () => {
                 Address={filteredArr[i].Address} 
                 timings={filteredArr[i].Timings}
                 uid={filteredArr[i].id}
-                Experience={filteredArr[i].experience}
+                Experience={filteredArr[i].Experience}
                 spottype={filteredArr[i].Parktype}
                 /></div>
             }
@@ -136,7 +136,7 @@ export const SpotsSearch = () => {
                 Address={filteredArr[i].Address} 
                 timings={filteredArr[i].Timings}
                 uid={filteredArr[i].id}
-                Experience={filteredArr[i].experience}
+                Experience={filteredArr[i].Experience}
                 spottype={filteredArr[i].Parktype}
                 /></div>
             }
