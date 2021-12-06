@@ -81,7 +81,7 @@ return (
                 <label htmlFor="parktype">SpotType</label>          
                 <select
                     name="parktype"
-                    required
+                    
                     value={parktype}
                     onChange={handleChange}
                 >
@@ -97,7 +97,7 @@ return (
                 <label htmlFor="experience">Experience</label>          
                 <select
                     name="experience"
-                    required
+                    
                     value={experience}
                     onChange={handleChange}
                 >
