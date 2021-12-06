@@ -134,4 +134,4 @@ return (
 
 };
 
-export default Spots
+export default Spots;

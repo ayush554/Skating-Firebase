@@ -51,3 +51,4 @@ export const View_park = () => {
     </section>
     ) : null;
 }
+export default View_park;

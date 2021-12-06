@@ -55,3 +55,4 @@ export const View_Friends = () => {
     </section>
     ) : null;
 }
+export default View_Friends;

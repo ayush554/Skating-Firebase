@@ -183,3 +183,4 @@ export const ParkSearch = () => {
        </div>
     ): null ;
 }
+export default ParkSearch;

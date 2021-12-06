@@ -134,4 +134,4 @@ return (
 
 };
 
-export default Parks
+export default Parks;

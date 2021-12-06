@@ -166,4 +166,4 @@ getDocs(qspots).then((snap) =>
     ):null ;
 };
 
-export default Home
+export default Home;

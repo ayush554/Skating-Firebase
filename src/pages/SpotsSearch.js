@@ -183,3 +183,4 @@ export const SpotsSearch = () => {
        </div>
     ): null ;
 }
+export default SpotsSearch;

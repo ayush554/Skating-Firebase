@@ -208,3 +208,4 @@ export const FriendsSearch = () => {
        </div>
     ): null ;
 }
+export default FriendsSearch;

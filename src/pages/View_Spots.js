@@ -50,3 +50,4 @@ export const View_Spots = () => {
     </section>
     ) : null;
 }
+export default View_Spots;
