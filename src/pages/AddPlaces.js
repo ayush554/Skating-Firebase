@@ -16,10 +16,11 @@ export const AddPlaces = () => {
           Parktype: "",
           City: "",
           Addtype: "",
+          Imagelink: "",
           error: null,
           loading: false,
         });
-    const { Name,  Description, Address, Parktype, Addtype, Timings, City,error, loading } = data;
+    const { Name,  Description, Address, Parktype, Experience, Imagelink, Addtype, Timings, City,error, loading } = data;
     const Experiencelvl = ['Beginner', 'Intermediate', 'Expert'];
     const Parktypelvl = ['Public', 'Private'];
     const AddTypelvl=['Parks','Spots'];
@@ -45,8 +46,11 @@ export const AddPlaces = () => {
             Addtype,
             Address,
             Description,
+            Experience,
+            Imagelink,
             Timings,
             City,
+            
             createdAt: Timestamp.fromDate(new Date()),
           
           });
@@ -56,6 +60,8 @@ export const AddPlaces = () => {
             Address: "",
             Skatingtype: "",
             Description: "",
+            Imagelink: "",
+            Experience: "",
             Addtype: "",
             City: "",
             error: null,
@@ -99,10 +105,30 @@ return (
         </div>
 
         <div className="input_container">
+          <label htmlFor="Imagelink">Imagelink</label>
+          <input type="text" name="Imagelink" value={Imagelink} onChange={handleChange}/>
+        </div>
+
+        <div className="input_container">
           <label htmlFor="Timings">Timings</label>
           <input type="text" name="Timings" value={Timings} placeholder="10:00AM-11:00PM" onChange={handleChange}
           />
         </div>
+
+        <div className="input_container">
+                <label htmlFor="Experience">Experience</label>          
+                <select
+                    name="Experience"
+                    required
+                    value={Experience}
+                    onChange={handleChange}
+                >
+                    <option value="">Select</option>
+                    {Experiencelvl.map((c) => (
+                        <option key={c}>{c}</option>
+                    ))}
+                </select>
+            </div>
 
         <div className="input_container">
                 <label htmlFor="City">City</label>          
