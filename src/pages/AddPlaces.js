@@ -38,8 +38,8 @@ export const AddPlaces = () => {
           setData({ ...data, error: "All fields are required" });
         }
        try {
-          
-          await setDoc(doc(db, Addtype,auth.currentUser.uid), {
+          var newid=Date.now().toString(36) + Math.random().toString(36).substr(2)
+          await setDoc(doc(db, Addtype,newid), {
             Name,
             Parktype,
             Addtype,
