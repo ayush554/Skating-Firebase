@@ -187,7 +187,7 @@ export const FriendsSearch = () => {
 
 
 
-    },[conditions]);
+    },[]);
     // console.log(Friend);
     return Friend ? (
         <div>

@@ -17,11 +17,9 @@ export const View_park = () => {
         // setParkid(snap.docs[0].data().uid);
         // console.log(snap.docs[0].data().uid);
         id=snap.docs[0].data().uid;
-        console.log(id);
         const parks= doc(db,'Parks',id)
         getDoc(parks).then((doc)=>
         {
-            console.log(doc.data());
             setPark(doc.data())
         });
        
@@ -31,7 +29,7 @@ export const View_park = () => {
     
 
 
-    });
+    },[]);
     
     return Park ? (
         <section>

@@ -163,7 +163,7 @@ export const SpotsSearch = () => {
 
 
 
-    });
+    },[]);
     // console.log(Friend);
     return Friend ? (
         <div>

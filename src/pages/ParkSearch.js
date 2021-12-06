@@ -162,7 +162,7 @@ export const ParkSearch = () => {
 
 
 
-    },[[conditions]]);
+    },[]);
     // console.log(Friend);
     return Friend ? (
         <div>

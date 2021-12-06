@@ -30,7 +30,7 @@ export const View_Friends = () => {
     
 
 
-    });
+    },[]);
     
     return Friend ? (
         <section>

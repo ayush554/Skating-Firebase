@@ -29,7 +29,7 @@ export const View_Spots = () => {
     
 
 
-    });
+    },[]);
     
     return Spots ? (
         <section>
