@@ -70,7 +70,7 @@ return (
 
         <div className="input_container">
           <label htmlFor="city">Location*</label>
-          <input type="text" name="city" value={city} onChange={handleChange}
+          <input type="text" name="city" required value={city} onChange={handleChange}
           />
         </div>
 
