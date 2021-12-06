@@ -1,32 +1,24 @@
-
 import React, { useState } from "react";
 import { auth, db } from "../firebase";
-import { setDoc, doc, Timestamp } from "firebase/firestore";
+import { setDoc, doc, Timestamp,addDoc,collection } from "firebase/firestore";
 import { useHistory } from "react-router-dom";
 
 
 
 export const Friends = () => {
-
+    const history = useHistory();
         const [data, setData] = useState({
-          name: "",
+          age: "",
           gender: "",
-          email: "",
-          password: "",
           experience: "",
           skatingtype: "",
-          social: "",
-          frequency: "",
-          phone: "",
-          state: "",
           city: "",
           error: null,
           loading: false,
         });
-    const { name, age, gender, email, password, experience,skatingtype,social,frequency,phone, state, city,error, loading } = data;
+    const { age, gender, skatingtype,city,experience, error, loading } = data;
     const Gender=['Male', 'Female', 'X'];
     const Experience = ['Beginner', 'Intermediate', 'Expert'];
-    const Parktype = ['GrPublicoup', 'Private'];
     const Skating_Type = [
         'Freestyle',
         'Vert',
@@ -37,16 +29,50 @@ export const Friends = () => {
         'Others',
     ];
 
-
+    const handleChange = (e) => {
+        setData({ ...data, [e.target.name]: e.target.value });
+      };
+    
+      const handleSubmit = async (e) => {
+        e.preventDefault();
+        setData({ ...data, error: null, loading: true });
+        if ( !experience || skatingtype )  {
+          setData({ ...data, error: "All fields are required" });
+        }
+       try {
+          
+          await setDoc(doc(db, "FriendSearch",auth.currentUser.uid), {
+            age,
+            gender,
+            skatingtype,
+            experience,
+            city,
+            createdAt: Timestamp.fromDate(new Date()),
+            isOnline: true,
+          });
+          setData({
+            age: "",
+            gender: "",
+            experience: "",
+            skatingtype: "",
+            city: "",
+            error: null,
+            loading: false,
+          });
+          history.replace("/");
+        } catch (err) {
+          setData({ ...data, error: err.message, loading: false });
+        }
+      };
 
 return (
     <section>
       <h3>Find Friends</h3>
-     
+      <form className="form" onSubmit={handleSubmit}>
         
         <div className="input_container">
           <label htmlFor="name">Age</label>
-          <input type="number" name="age" value={age} />
+          <input type="number" name="age" value={age} onChange={handleChange}  />
         </div>
 
 
@@ -54,7 +80,7 @@ return (
         <div className="input_container">
           <label htmlFor="city">Location*</label>
           <input type="text" name="city" value={city} 
-        //   onChange={handleChange} 
+          onChange={handleChange} 
           />
         </div>
 
@@ -64,7 +90,7 @@ return (
                     name="gender"
                     required
                     value={gender}
-                    // onChange={handleChange}
+                    onChange={handleChange}
                 >
                     <option value="">Select</option>
                     {Gender.map((c) => (
@@ -79,7 +105,7 @@ return (
                     name="skatingtype"
                     required
                     value={skatingtype}
-                    // onChange={handleChange}
+                    onChange={handleChange}
                 >
                     <option value="">Select</option>
                     {Skating_Type.map((c) => (
@@ -95,8 +121,8 @@ return (
                 <select
                     name="experience"
                     required
-                    value={Experience}
-                    // onChange={handleChange}
+                    value={experience}
+                    onChange={handleChange}
                 >
                     <option value="">Select</option>
                     {Experience.map((c) => (
@@ -105,12 +131,14 @@ return (
                 </select>
             </div>
 
-            <div className="btn_container">
+
+            {error ? <p className="error">{error}</p> : null}
+        <div className="btn_container">
           <button className="btn" disabled={loading}>
             {loading ? "Creating ..." : "Submit"}
           </button>
         </div>
-
+        </form>
             </section>
 
 );
