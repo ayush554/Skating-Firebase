@@ -46,6 +46,7 @@ export const View_park = () => {
           <p>City: {Park.City}</p>
           <p>Description: {Park.Description}</p>
           <p>Park Type: {Park.Parktype}</p>
+          <p>Experience: {Park.Experience}</p>
           <p>Timings: {Park.Timings}</p>
         </div>
       </div>

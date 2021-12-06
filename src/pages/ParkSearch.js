@@ -125,7 +125,7 @@ export const ParkSearch = () => {
                 title={filteredArr[i].Name}
                 Address={filteredArr[i].Address} 
                 timings={filteredArr[i].Timings}
-                Experience={filteredArr[i].experience}
+                Experience={filteredArr[i].Experience}
                 uid={filteredArr[i].id}
                 /></div>
             }
@@ -135,7 +135,7 @@ export const ParkSearch = () => {
                 title={filteredArr[i].Name}
                 Address={filteredArr[i].Address} 
                 timings={filteredArr[i].Timings}
-                Experience={filteredArr[i].experience}
+                Experience={filteredArr[i].Experience}
                 uid={filteredArr[i].id}
                 /></div>
             }
