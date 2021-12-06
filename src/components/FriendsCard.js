@@ -1,6 +1,36 @@
-import React from 'react'
+import React, { useState} from "react";
 import Img from "../image1.jpg";
-export const FriendsCard = ({ imgsrc, title, joined_date ,Address,Age, Gender, Skating_Type}) => {
+import { auth, db } from "../firebase";
+import { useHistory } from "react-router-dom";
+import { setDoc, doc, Timestamp,addDoc,collection } from "firebase/firestore";
+export const FriendsCard = ({ imgsrc, title, experience ,Address,Age, Gender, Skating_Type,uid}) => {
+
+    const history= useHistory();
+    const [data, setData] = useState({
+      uid: "",
+      type: "Friends",
+    });
+    const { type } = data;
+    const handleClick = async (e) => {
+      e.preventDefault();
+      setData({ ...data, error: null, loading: true });
+      
+     try {
+        
+        await setDoc(doc(db, "ViewDetails",auth.currentUser.uid), {
+          uid,
+          type
+        });
+        setData({
+          uid: "",
+          type: "Friends",
+          
+        });
+        history.replace("/View_Friends");
+      } catch (err) {
+        setData({ ...data, error: err.message, loading: false });
+      }
+    };
     return (
          <div className="Card">
       <div className="profile_container">
@@ -14,9 +44,9 @@ export const FriendsCard = ({ imgsrc, title, joined_date ,Address,Age, Gender, S
           <p>Gender: {Gender}</p>
           <p>Address: {Address}</p>
           <p>Skating Type: {Skating_Type}</p>
-          <small>Joined on: {joined_date}</small>
+          <p>Experience: {experience}</p>
           <p></p>
-          <button className="btn" > View Details </button>
+          <button className="btn" onClick={handleClick}> View Details </button>
         </div>
         
       </div>

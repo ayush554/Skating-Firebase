@@ -14,7 +14,7 @@ export const Home = () => {
     let div_id=["left","middle","right"];
     let park_id=[];
     let spots_id=[];
-
+    
     useEffect(() => {
 
     const currentuserdetails = query(collection(db, 'users'), where("uid","==",auth.currentUser.uid));
@@ -22,7 +22,7 @@ export const Home = () => {
 {   
     // let user=snap.data();
     setUser(snap.docs[0].data());
-    // console.log(User.city);
+    
     const q = query(collection(db, "Parks"), where("City", "==", User.city));
     
 getDocs(q).then((snap) =>
@@ -32,6 +32,7 @@ getDocs(q).then((snap) =>
     {
         
         parks.push({...doc.data(),id:doc.id})
+        // console.log(parks[0].id);
     })
     for (let i = 0; i < parks.length; i++) {
         if (i<3)
@@ -41,6 +42,8 @@ getDocs(q).then((snap) =>
             title={parks[i].Name}
             Address={parks[i].Address} 
             timings={parks[i].Timings}
+            Experience={parks[i].Experience}
+            uid={parks[i].id}
             /></div>
         }
         else{
@@ -49,6 +52,8 @@ getDocs(q).then((snap) =>
             title={parks[i].Name}
             Address={parks[i].Address} 
             timings={parks[i].Timings}
+            Experience={parks[i].Experience}
+            uid={parks[i].id}
             /></div>
         }
       }
@@ -78,6 +83,9 @@ getDocs(qspots).then((snap) =>
             imgsrc={spots[i].Imagelink}
             title={spots[i].Name}
             Address={spots[i].Address} 
+            Experience={spots[i].Experience}
+            spottype={spots[i].Parktype}
+            uid={spots[i].id}
             /></div>
         }
         else{
@@ -85,6 +93,9 @@ getDocs(qspots).then((snap) =>
             imgsrc={spots[i].Imagelink}
             title={spots[i].Name}
             Address={spots[i].Address} 
+            Experience={spots[i].Experience}
+            spottype={spots[i].Parktype}
+            uid={spots[i].id}
             /></div>
         }
       }
@@ -119,7 +130,7 @@ getDocs(qspots).then((snap) =>
 
 
 
-    });
+    },[User]);
     return [Park,Spot] ? (
         
         <div>

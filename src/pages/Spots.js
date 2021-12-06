@@ -50,7 +50,7 @@ export const Spots = () => {
             error: null,
             loading: false,
           });
-          history.replace("/");
+          history.replace("/SpotsSearch");
         } catch (err) {
           setData({ ...data, error: err.message, loading: false });
         }

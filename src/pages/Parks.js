@@ -50,7 +50,7 @@ export const Parks = () => {
             error: null,
             loading: false,
           });
-          history.replace("/");
+          history.replace("/ParkSearch");
         } catch (err) {
           setData({ ...data, error: err.message, loading: false });
         }

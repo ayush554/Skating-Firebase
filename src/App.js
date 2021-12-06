@@ -14,6 +14,12 @@ import Parks from './pages/Parks';
 import Chat from './pages/Chat';
 import AddPlaces from './pages/AddPlaces';
 import Favorites from './pages/Favorites';
+import { View_park } from './pages/View_park';
+import { View_Spots } from './pages/View_Spots';
+import { FriendsSearch } from './pages/FriendsSearch';
+import { View_Friends } from './pages/View_Friends';
+import { ParkSearch } from './pages/ParkSearch';
+import { SpotsSearch } from './pages/SpotsSearch';
 function App() {
   return (
     <AuthProvider>
@@ -28,6 +34,12 @@ function App() {
           <PrivateRoute exact path="/Chat" component={Chat}/>
           <PrivateRoute exact path="/AddPlaces" component={AddPlaces}/>
           <PrivateRoute exact path="/Favorites" component={Favorites}/>
+          <PrivateRoute exact path="/View_Park" component={View_park}/>
+          <PrivateRoute exact path="/View_Spots" component={View_Spots}/>
+          <PrivateRoute exact path="/View_Friends" component={View_Friends}/>
+          <PrivateRoute exact path="/FriendsSearch" component={FriendsSearch}/>
+          <PrivateRoute exact path="/SpotsSearch" component={SpotsSearch}/>
+          <PrivateRoute exact path="/ParkSearch" component={ParkSearch}/>
           <Route exact path="/Register" component={Register} />
           <Route exact path="/Login" component={Login} />
         </Switch>

@@ -59,7 +59,7 @@ export const Friends = () => {
             error: null,
             loading: false,
           });
-          history.replace("/");
+          history.replace("/FriendsSearch");
         } catch (err) {
           setData({ ...data, error: err.message, loading: false });
         }
@@ -79,7 +79,7 @@ return (
 
         <div className="input_container">
           <label htmlFor="city">Location*</label>
-          <input type="text" name="city" value={city} 
+          <input type="text" name="city" required value={city} 
           onChange={handleChange} 
           />
         </div>
@@ -88,7 +88,7 @@ return (
                 <label htmlFor="parktype">Gender</label>          
                 <select
                     name="gender"
-                    required
+                    
                     value={gender}
                     onChange={handleChange}
                 >
@@ -103,7 +103,7 @@ return (
                 <label htmlFor="skatingtype">Type of Skating</label>          
                 <select
                     name="skatingtype"
-                    required
+                    
                     value={skatingtype}
                     onChange={handleChange}
                 >
@@ -120,7 +120,7 @@ return (
                 <label htmlFor="experience">Experience</label>          
                 <select
                     name="experience"
-                    required
+                    
                     value={experience}
                     onChange={handleChange}
                 >
