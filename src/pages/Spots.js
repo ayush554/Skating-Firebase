@@ -20,7 +20,7 @@ export const Spots = () => {
     const { name,  parktype, experience, city,error, loading } = data;
     const Experience = ['Beginner', 'Intermediate', 'Expert'];
     const Parktype = ['Public', 'Private'];
-    
+    const Cityselect=['Dallas','Plano','Fort Worth','Arlington','Richardson','Frisco','Grapevile','Wylie','White Settlement','Grabd Prairie','McKinney'];
 
     const handleChange = (e) => {
         setData({ ...data, [e.target.name]: e.target.value });
@@ -69,10 +69,19 @@ return (
 
 
         <div className="input_container">
-          <label htmlFor="city">Location*</label>
-          <input type="text" name="city" required value={city} onChange={handleChange}
-          />
-        </div>
+                <label htmlFor="city">City</label>          
+                <select
+                    name="city"
+                    required
+                    value={city}
+                    onChange={handleChange}
+                >
+                    <option value="">Select</option>
+                    {Cityselect.map((c) => (
+                        <option key={c}>{c}</option>
+                    ))}
+                </select>
+            </div>
 
 
 

@@ -105,7 +105,7 @@ return (
         </div>
 
         <div className="input_container">
-                <label htmlFor="City">Location</label>          
+                <label htmlFor="City">City</label>          
                 <select
                     name="City"
                     required
@@ -124,7 +124,7 @@ return (
                 <label htmlFor="Addtype">AddType</label>          
                 <select
                     name="Addtype"
-                    required
+                    
                     value={Addtype}
                     onChange={handleChange}
                 >
@@ -140,7 +140,7 @@ return (
                 <label htmlFor="Parktype">AccessType</label>          
                 <select
                     name="Parktype"
-                    required
+                   
                     value={Parktype}
                     onChange={handleChange}
                 >

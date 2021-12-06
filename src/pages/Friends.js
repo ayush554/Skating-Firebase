@@ -28,7 +28,7 @@ export const Friends = () => {
         'Downhill',
         'Others',
     ];
-
+    const Cityselect=['Dallas','Plano','Fort Worth','Arlington','Richardson','Frisco','Grapevile','Wylie','White Settlement','Grabd Prairie','McKinney'];
     const handleChange = (e) => {
         setData({ ...data, [e.target.name]: e.target.value });
       };
@@ -78,11 +78,19 @@ return (
 
 
         <div className="input_container">
-          <label htmlFor="city">Location*</label>
-          <input type="text" name="city" required value={city} 
-          onChange={handleChange} 
-          />
-        </div>
+                <label htmlFor="city">City</label>          
+                <select
+                    name="city"
+                    required
+                    value={city}
+                    onChange={handleChange}
+                >
+                    <option value="">Select</option>
+                    {Cityselect.map((c) => (
+                        <option key={c}>{c}</option>
+                    ))}
+                </select>
+            </div>
 
         <div className="input_container">
                 <label htmlFor="parktype">Gender</label>          
