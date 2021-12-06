@@ -142,7 +142,6 @@ export const SpotsSearch = () => {
             }
           }
           setFriend(friend_id);
-       
     }).catch(err =>
         {
             console.log(err.message);
