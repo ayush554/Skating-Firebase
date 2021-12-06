@@ -1,17 +1,17 @@
 import React from 'react'
 import Img from "../image1.jpg";
-export const Card = () => {
+export const ParksCard = ({ imgsrc, title,Address,timings}) => {
     return (
          <div className="Card">
       <div className="profile_container">
         <div className="img_container">
-          <img src={Img || Img} alt="avatar" />
+          <img src={imgsrc || Img} alt="avatar" />
        
         </div>
-        <div className="text_container">
-          <h3>Name</h3>
-          <p>Email</p>
-          <small>Joined on: Today</small>
+        <div className="textt_container">
+          <h3>{title}</h3>
+          <p>Address: {Address}</p>
+          <p>Timings: {timings}</p>
           <p></p>
           <button className="btn" > View Details </button>
         </div>
@@ -20,4 +20,4 @@ export const Card = () => {
     </div>
     );
 };
-export default Card;
+export default ParksCard;

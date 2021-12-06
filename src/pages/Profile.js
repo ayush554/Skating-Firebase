@@ -93,8 +93,10 @@ const Profile = () => {
           <p>Email: {user.email}</p>
           <p>Experience: {user.experience}</p>
           <p>Skating type: {user.skatingtype}</p>
+          <p>Gender: {user.gender}</p>
           <p>City: {user.city}</p>
           <p>Phone: {user.phone}</p>
+          <p>Age: {user.age}</p>
 
           <small>Joined on: {user.createdAt.toDate().toDateString()}</small>
         </div>

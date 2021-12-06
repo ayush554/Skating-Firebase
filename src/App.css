@@ -324,7 +324,14 @@ section .form {
   }
 
 
-
+  .textt_container {
+    padding-left: 20px;
+    flex-grow: 1;
+    
+  }
+  .textt_container h3 {
+    text-align: left;
+  }
 
 
 }
